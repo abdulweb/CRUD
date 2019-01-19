@@ -1,31 +1,31 @@
 <?php
-	// //Linking or including the connection file
-	// include 'connection.php';
-	// //if Register Button is click
-	// if (isset($_POST['registerBtn'])) {
-	// 	//get the value from text field
-	// 	$fullname = $_POST['name'];
-	// 	$email = $_POST['email'];
-	// 	$password = $_POST['password'];
-	// 	//check if is empty. Note || stands for OR
-	// 	if (empty($fullname) || empty($email) || empty($password)) 
-	// 	{
-	// 		// Alertting error message
-	// 		echo "<script>alert('All field is Required')</script>";
-	// 	}
-	// 	else
-	// 	{	
-	// 		$create = mysqli_query($con, "INSERT INTO user_tb(fullname,email,password)VALUES('$fullname','$email','$password')");
-	// 		//check if it has been inserted
-	// 		if ($create) {
-	// 			echo "<script>alert('Registration Successfuly')</script>";
-	// 		}
-	// 		else
-	// 		{
-	// 			echo "<script>alert('Error Occured!!! Please Refill')</script>";
-	// 		}
-	// 	}
-	// }
+	//Linking or including the connection file
+	include 'connection.php';
+	//if Register Button is click
+	if (isset($_POST['registerBtn'])) {
+		//get the value from text field
+		$fullname = $_POST['name'];
+		$email = $_POST['email'];
+		$password = $_POST['password'];
+		//check if is empty. Note || stands for OR
+		if (empty($fullname) || empty($email) || empty($password)) 
+		{
+			// Alertting error message
+			echo "<script>alert('All field is Required')</script>";
+		}
+		else
+		{	
+			$create = mysqli_query($con, "INSERT INTO user_tb(fullname,email,password)VALUES('$fullname','$email','$password')");
+			//check if it has been inserted
+			if ($create) {
+				echo "<script>alert('Registration Successfuly')</script>";
+			}
+			else
+			{
+				echo "<script>alert('Error Occured!!! Please Refill')</script>";
+			}
+		}
+	}
 ?>
 
 <!DOCTYPE html>
