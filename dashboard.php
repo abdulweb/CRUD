@@ -2,6 +2,8 @@
 	//Linking or including the connection file
 	include 'connection.php';
 	session_start();
+
+
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +18,15 @@
 		border: 1px solid #cca;
 		border-radius: 10px;
 		padding: 30px;
+	}
+	.border{
+		border: 1px solid #99a;
+	}
+	table {
+		margin-top: 20px;
+	}
+	tr,td,th{
+		padding: 13px
 	}
 </style>
 <body>
@@ -50,7 +61,7 @@
 		<!-- <div class="col-md-1"></div> -->
 		<div class="col-md-4 col-md-offset-4 container" >
 			
-			<div class="panel">
+			<div class="panel-primary border">
 				<div class="panel-heading">
 					Dashboard
 				</div>
@@ -59,6 +70,39 @@
 				</div>
 			</div>
 	</div>
+	</div>
+	<div class="row">
+		<div class="col-md-9 col-md-offset-3">
+			<table class="table-bordered">
+				<tr>
+					<th>S/N</th>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Action</th>
+				</tr>
+				<tr>
+				<?php
+				// code to retrive record from database
+				$sql = mysqli_query($con, "select * from user_tb");
+				$counter =1; 
+				while ($rows = mysqli_fetch_assoc($sql)) {
+				?>
+					
+				
+					<td><?=$counter?></td>
+					<td> <?=$rows['fullname']?> </td>
+					<td> <?=$rows['email']?></td>
+					<td>
+						<a href="" class="btn btn-primary">Edit</a>
+						<a href="" class="btn btn-danger">Delete</a>
+					</td>
+				</tr>
+				<?php 
+					$counter++;
+				}
+				?>
+			</table>
+		</div>
 	</div>
 </body>
 </html>
