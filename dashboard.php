@@ -2,7 +2,8 @@
 	//Linking or including the connection file
 	include 'connection.php';
 	session_start();
-
+	//Global declaration of session to avaoid having error
+	//$_SESSION['success'] = $_SESSION['error'] = '';
 
 ?>
 
@@ -73,6 +74,8 @@
 	</div>
 	<div class="row">
 		<div class="col-md-9 col-md-offset-3">
+		<p class="text-success"><?=$_SESSION['success']?></p>
+		<p class="text-danger"><?=$_SESSION['error']?></p>
 			<table class="table-bordered">
 				<tr>
 					<th>S/N</th>
@@ -93,8 +96,11 @@
 					<td> <?=$rows['fullname']?> </td>
 					<td> <?=$rows['email']?></td>
 					<td>
-						<a href="" class="btn btn-primary">Edit</a>
-						<a href="" class="btn btn-danger">Delete</a>
+						<!-- <a href="" class="btn btn-primary">Edit</a> -->
+						<form action="delete.php" method="get">
+						<input type="hidden" value="<?=$rows['id']?>" name ="del"/>
+						<button class="btn btn-danger" onclick="return confirm('Are You sure YOu want to Delete?');" type="submit">Delete</button>
+						</form>
 					</td>
 				</tr>
 				<?php 
