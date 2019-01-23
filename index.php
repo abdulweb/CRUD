@@ -32,6 +32,10 @@
 <html>
 <head>
 	<title>CRUD</title>
+	<meta name="description" content="Crud in Native PHP">
+	<meta name="keywords" content="HTML,CSS,PHP, CRUD in PHP">
+  	<meta name="author" content="Abdulraheem Abdulrasheed">
+  	<meta name="author" content="abdulweb">
 	<link rel="stylesheet" type="text/css" href="bootstrap.css">
 </head>
 <style type="text/css">
